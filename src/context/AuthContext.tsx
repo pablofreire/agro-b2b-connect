@@ -57,7 +57,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setIsLoading(true);
     
     try {
-      // Simulating API call
+      // For test credentials
+      if (email === "teste" && password === "123") {
+        const mockUser: User = {
+          id: "1",
+          name: "Usuário Teste",
+          email: "teste@agro.com",
+          role: "company",
+          company: {
+            id: "1",
+            name: "Empresa Teste",
+            type: "company"
+          }
+        };
+        
+        setUser(mockUser);
+        localStorage.setItem("user", JSON.stringify(mockUser));
+        return;
+      }
+      
+      // Simulating API call for other users
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       // For demo purposes, we'll create a mock user based on email

@@ -19,6 +19,12 @@ import CompanyIndex from "./pages/Company/Index";
 import BuyerIndex from "./pages/Buyer/Index";
 import SellerIndex from "./pages/Seller/Index";
 
+// New pages
+import CompaniesIndex from "./pages/Companies/Index";
+import BuyersIndex from "./pages/Buyers/Index";
+import SellersIndex from "./pages/Sellers/Index";
+import AuctionsIndex from "./pages/Auctions/Index";
+
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -55,6 +61,12 @@ const App = () => (
             {/* Seller Routes */}
             <Route path="/seller" element={<SellerIndex />} />
             {/* Add more seller routes as needed */}
+
+            {/* New Pages */}
+            <Route path="/companies" element={<CompaniesIndex />} />
+            <Route path="/buyers" element={<BuyersIndex />} />
+            <Route path="/sellers" element={<SellersIndex />} />
+            <Route path="/auctions" element={<AuctionsIndex />} />
 
             {/* Catch-all Route */}
             <Route path="*" element={<NotFound />} />

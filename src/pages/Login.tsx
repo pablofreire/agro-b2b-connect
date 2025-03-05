@@ -41,8 +41,10 @@ const Login = () => {
         description: "Você será redirecionado para o dashboard"
       });
       
-      // Redirect based on email
-      if (email.includes("admin")) {
+      // Redirect based on email or test credentials
+      if (email === "teste") {
+        navigate("/company");
+      } else if (email.includes("admin")) {
         navigate("/admin");
       } else if (email.includes("buyer")) {
         navigate("/buyer");
@@ -84,11 +86,11 @@ const Login = () => {
           <GlassCard className="p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="email">E-mail</Label>
+                <Label htmlFor="email">Usuário/E-mail</Label>
                 <Input
                   id="email"
-                  type="email"
-                  placeholder="seuemail@empresa.com.br"
+                  type="text"
+                  placeholder="Digite seu usuário ou email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -153,6 +155,10 @@ const Login = () => {
           <div className="mt-8 text-center">
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Para demonstração, use:<br />
+              <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs">
+                usuário: teste / senha: 123
+              </code>
+              <br />ou<br />
               <code className="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs">
                 admin@email.com / buyer@email.com / seller@email.com / company@email.com
               </code>
