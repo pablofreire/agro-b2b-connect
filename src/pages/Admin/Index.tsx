@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -13,19 +12,6 @@ import { Database, Settings, Users, Clock, Shield, FileText, DollarSign } from "
 const AdminIndex = () => {
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth();
-
-  // Redirect if not authenticated or not admin
-  React.useEffect(() => {
-    if (!isAuthenticated) {
-      navigate("/login");
-    } else if (user?.role !== "admin") {
-      navigate("/dashboard");
-    }
-  }, [isAuthenticated, user, navigate]);
-
-  if (!isAuthenticated || user?.role !== "admin") {
-    return null; // Don't render anything if not authorized
-  }
 
   return (
     <Layout>

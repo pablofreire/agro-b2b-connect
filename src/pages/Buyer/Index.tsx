@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -16,17 +15,6 @@ import {
 const BuyerIndex = () => {
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth();
-
-  // Redirect if not authenticated
-  React.useEffect(() => {
-    if (!isAuthenticated) {
-      navigate("/login");
-    }
-  }, [isAuthenticated, navigate]);
-
-  if (!isAuthenticated) {
-    return null; // Don't render anything while checking authentication
-  }
 
   return (
     <Layout>

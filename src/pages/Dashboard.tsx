@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -14,14 +13,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth();
 
-  // Redirect if not authenticated
-  React.useEffect(() => {
-    if (!isAuthenticated) {
-      navigate("/login");
-    }
-  }, [isAuthenticated, navigate]);
-
-  // Redirect to role-specific dashboard
+  // Role-specific dashboard redirection with a small delay
   React.useEffect(() => {
     if (user?.role) {
       // Small delay to show the dashboard before redirecting
@@ -48,10 +40,6 @@ const Dashboard = () => {
       return () => clearTimeout(timeout);
     }
   }, [user, navigate]);
-
-  if (!isAuthenticated) {
-    return null; // Don't render anything while checking authentication
-  }
 
   return (
     <Layout>

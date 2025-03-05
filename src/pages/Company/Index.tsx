@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
@@ -10,23 +9,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { 
   Building2, Users, PackageOpen, Wallet, 
-  AlertCircle, FileText, Clock, CheckCircle
+  AlertCircle, FileText, Clock, CheckCircle, Shield
 } from "lucide-react";
 
 const CompanyIndex = () => {
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth();
-
-  // Redirect if not authenticated
-  React.useEffect(() => {
-    if (!isAuthenticated) {
-      navigate("/login");
-    }
-  }, [isAuthenticated, navigate]);
-
-  if (!isAuthenticated) {
-    return null; // Don't render anything while checking authentication
-  }
 
   return (
     <Layout>
